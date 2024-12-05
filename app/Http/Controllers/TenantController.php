@@ -50,7 +50,7 @@ class TenantController extends Controller
         ]);
     
         // Redirect to tenant index with success message
-        return redirect()->route('tenants.index')
+        return redirect()->route('tenantsbo.index')
             ->with('success', 'Tenant created successfully.');
     }
     
