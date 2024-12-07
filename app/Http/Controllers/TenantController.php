@@ -10,10 +10,14 @@ class TenantController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        return view('tenant.index');
-    }
+// TenantController.php
+public function index()
+{
+    $tenants = Tenant::all(); // Or you can use pagination: Tenant::paginate(10)
+    
+    return view('tenant.index', compact('tenants'));
+}
+
 
     /**
      * Show the form for creating a new resource.
@@ -50,7 +54,7 @@ class TenantController extends Controller
         ]);
     
         // Redirect to tenant index with success message
-        return redirect()->route('tenantsbo.index')
+        return redirect()->route('tenants.index')
             ->with('success', 'Tenant created successfully.');
     }
     
